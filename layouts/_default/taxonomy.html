@@ -15,14 +15,14 @@
                       {{ .Date.Format "Jan 2" }}
                   </div>
                   <div class="title">
-                      <a href="{{ .Permalink }}">
+                      <a href="{{ .Permalink | relURL}}">
                           {{ .Title }}
                       </a>
 
                       {{ with .Params.tags }}
                           <div class="tags">
                               {{ range . }}
-                                  <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+                                  <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>
                               {{ end }}
                           </div>
                       {{ end}}
