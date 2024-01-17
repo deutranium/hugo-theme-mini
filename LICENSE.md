@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 201-present [nodejh](http://nodejh.com)
+Copyright (c) 201-present [deutranium](https://deutranium.github.io/)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
