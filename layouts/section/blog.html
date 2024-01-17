@@ -2,6 +2,7 @@
 {{ partial "profile.html" . }}
 
 <div id="list-page">
+    {{.Content}}
     {{ $pages := .Site.RegularPages }}
     {{ $paginator := .Paginate ($pages) }}
     {{ range $paginator.Pages }}
