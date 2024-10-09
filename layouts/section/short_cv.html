@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "profile.html" . }}
+
+<section id="section">
+    {{with .GetPage `short_cv/_index.md`}}
+        {{.Content}}
+    {{end}}
+</section>
+
+
+{{ end }}
