@@ -1,11 +1,23 @@
 {{ define "main" }}
 {{ partial "profile.html" . }}
 
-<section id="section">
-    {{with .GetPage `about/_index.md`}}
-        {{.Content}}
-    {{end}}
-</section>
+<div id="list-page">
+    {{ with .GetPage "blog" }}
+        {{ .Content }}
+    {{ end }}
+    {{ $pages := .Site.RegularPages }}
+    {{ range $pages }}
+        {{ $title := .Title }}
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='{{ .RelPermalink }}'>{{ $title }}</a></h1>
+          </div>
+
+          <div class="summary">{{ .Description }}</div>
+
+        </section>
+    {{ end }}
 
 
+</div>
 {{ end }}
