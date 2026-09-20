@@ -21,7 +21,7 @@
 
                       {{ with .Params.tags }}
                           <div class="tags">
-                              {{ range . }}
+                              {{ range sort . }}
                                   <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
                               {{ end }}
                           </div>

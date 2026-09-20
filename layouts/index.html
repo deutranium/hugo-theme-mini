@@ -6,14 +6,23 @@
         {{ .Content }}
     {{ end }}
     {{ $pages := .Site.RegularPages }}
-    {{ range $pages }}
+    {{ $last := sub (len $pages) 1 }}
+    {{ range $index, $page := $pages }}
+        {{ $n := sub $last $index }}
         {{ $title := .Title }}
         <section class="item">
           <div>
-            <h1 class="title"><a href='{{ .RelPermalink }}'>{{ $title }}</a></h1>
+            <h1 class="title"><a href='{{ .RelPermalink }}'>{{ $n }}. {{ $title }}</a></h1>
           </div>
 
           <div class="summary">{{ .Description }}</div>
+          {{ with .Params.tags }}
+              <div class="tags">
+                  {{ range sort . }}
+                      <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+                  {{ end }}
+              </div>
+          {{ end }}
 
         </section>
     {{ end }}
